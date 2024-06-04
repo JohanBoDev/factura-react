@@ -49,8 +49,8 @@ function App() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Factura</h1>
-      <div className="grid grid-cols-2 gap-4">
+      <h1 className="text-2xl text-white font-bold mb-4 mt-10">Factura</h1>
+      <div className="grid grid-cols-2 gap-10">
         <input type="text" name="numeroFactura" placeholder="Número de Factura" value={formData.numeroFactura} onChange={handleChange} className="p-2 border" />
         <input type="text" name="nombreCliente" placeholder="Nombre del Cliente" value={formData.nombreCliente} onChange={handleChange} className="p-2 border" />
         <input type="text" name="cedula" placeholder="Cédula" value={formData.cedula} onChange={handleChange} className="p-2 border" />
@@ -63,8 +63,8 @@ function App() {
         <button onClick={agregarProducto} className="bg-green-500 text-white p-2 col-span-2">Agregar Producto</button>
       </div>
 
-      <table className="table-auto w-full mt-4 border">
-        <thead>
+      <table className="table-auto w-full mt-4 border ">
+        <thead className="">
           <tr className="bg-gray-200">
             <th className="p-2 border">ID Producto</th>
             <th className="p-2 border">Descripción</th>
@@ -77,12 +77,12 @@ function App() {
         <tbody>
           {productos.map((producto, index) => (
             <tr key={index}>
-              <td className="p-2 border">{producto.idProducto}</td>
-              <td className="p-2 border">{producto.descripcion}</td>
-              <td className="p-2 border">{producto.valorUnitario.toFixed(2)}</td>
-              <td className="p-2 border">{producto.cantidad}</td>
-              <td className="p-2 border">{producto.subtotal.toFixed(2)}</td>
-              <td className="p-2 border">
+              <td className="p-2 border text-white font-bold">{producto.idProducto}</td>
+              <td className="p-2 border text-white font-bold">{producto.descripcion}</td>
+              <td className="p-2 border text-white font-bold">{producto.valorUnitario.toFixed(2)}</td>
+              <td className="p-2 border text-white font-bold">{producto.cantidad}</td>
+              <td className="p-2 border text-white font-bold">{producto.subtotal.toFixed(2)}</td>
+              <td className="p-2 border text-white font-bold">
                 <button onClick={() => eliminarProducto(index)} className="bg-red-500 text-white p-2">Eliminar</button>
               </td>
             </tr>
@@ -91,9 +91,9 @@ function App() {
       </table>
 
       <div className="mt-4 text-right">
-        <p>Subtotal: ${totales.subtotal.toFixed(2)}</p>
-        <p>IVA (16%): ${totales.iva.toFixed(2)}</p>
-        <p>Total: ${totales.total.toFixed(2)}</p>
+        <p className='text-white font-bold'>Subtotal: ${totales.subtotal.toFixed(2)}</p>
+        <p className='text-white font-bold'>IVA (16%): ${totales.iva.toFixed(2)}</p>
+        <p className='text-white font-bold'>Total: ${totales.total.toFixed(2)}</p>
       </div>
     </div>
   );
